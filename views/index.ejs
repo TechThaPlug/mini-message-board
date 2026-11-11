@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<h1><%= title %></h1>
+<p><a class="button" href="/new">New message</a></p>
+
+<% if (messages.length === 0) { %>
+  <p>No messages yet. Be the first to post!</p>
+<% } else { %>
+  <ul class="messages">
+    <% messages.forEach((message) => { %>
+      <li class="message">
+        <p class="text"><%= message.text %></p>
+        <p class="meta">
+          by <strong><%= message.user %></strong>
+          on <%= formatDate(message.added) %>
+        </p>
+        <a href="/message/<%= message.id %>">Open</a>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<%- include("partials/footer") %>

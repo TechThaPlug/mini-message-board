@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<h1>Message details</h1>
+
+<article class="message detail">
+  <p class="text"><%= message.text %></p>
+  <dl>
+    <dt>Author</dt>
+    <dd><%= message.user %></dd>
+    <dt>Added</dt>
+    <dd><%= formatDate(message.added) %></dd>
+  </dl>
+</article>
+
+<p><a href="/">Back to all messages</a></p>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<h1><%= title %></h1>
+
+<% if (errors.length > 0) { %>
+  <div class="errors" role="alert">
+    <ul>
+      <% errors.forEach((error) => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<form method="POST" action="/new">
+  <label for="messageUser">Your name</label>
+  <input
+    type="text"
+    id="messageUser"
+    name="messageUser"
+    maxlength="40"
+    required
+    value="<%= values.messageUser %>"
+  >
+
+  <label for="messageText">Message</label>
+  <textarea
+    id="messageText"
+    name="messageText"
+    rows="4"
+    maxlength="280"
+    required
+  ><%= values.messageText %></textarea>
+
+  <button type="submit">Send</button>
+</form>
+
+<p><a href="/">Back to all messages</a></p>
+
+<%- include("partials/footer") %>
